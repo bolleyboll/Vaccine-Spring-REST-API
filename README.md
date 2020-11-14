@@ -31,157 +31,157 @@ CLINICAL VACCINE TRIAL
 
 ## Routes
 
-/login: 
-/register: 
+* /login: 
+* /register: 
 
-/org: 
-/org/profile: 
-/org/profile/edit: 
-/org/delete:
-/org/vaccine:
-/org/vaccine/add:
-/org/vaccine/delete:
-/org/vaccine/edit:
-/org/trials:
-/org/newtrial:
+* /org: 
+* /org/profile: 
+* /org/profile/edit: 
+* /org/delete:
+* /org/vaccine:
+* /org/vaccine/add:
+* /org/vaccine/delete:
+* /org/vaccine/edit:
+* /org/trials:
+* /org/newtrial:
 
-/patient: 
-/patient/profile: 
-/patient/profile/edit: 
-/patient/delete:
-/patient/results:
-/patient/enroll: 
+* /patient: 
+* /patient/profile: 
+* /patient/profile/edit: 
+* /patient/delete:
+* /patient/results:
+* /patient/enroll: 
 
-/forgotpassword
-/logout
-/about
+* /forgotpassword
+* /logout
+* /about
 
 ## Route Description
 
 /login: 
-*accepts username, password, type(org/patient)
-*does authentication 
-*returns success or failure 
-*returns to homepage else /login
+* accepts username, password, type(org/patient)
+* does authentication 
+* returns success or failure 
+* returns to homepage else /login
 
 /register: 
-*accepts info, type (org/patient)
-*does registration, checks if user is already registered or not
-*returns success or failure
-*returns to /login else /register with alert msg
+* accepts info, type (org/patient)
+* does registration, checks if user is already registered or not
+* returns success or failure
+* returns to /login else /register with alert msg
 
 /org: 
-*accepts: NIL
-*does: list of all organizations which are registered
-*returns: list of all organizations which are registered
-*returns to: ListOrg
+* accepts: NIL
+* does: list of all organizations which are registered
+* returns: list of all organizations which are registered
+* returns to: ListOrg
 
 /org/profile: 
-*accepts: NIL
-*does: displays profile details
-*returns: profile details
-*returns to: profileComponent
+* accepts: NIL
+* does: displays profile details
+* returns: profile details
+* returns to: profileComponent
 
 /org/profile/edit: 
-*accepts: form with user details
-*does: changes user profile
-*returns: success or failure
-*returns to: EditProfileCoomponent
+* accepts: form with user details
+* does: changes user profile
+* returns: success or failure
+* returns to: EditProfileCoomponent
 
 /org/delete:
-*accepts: orgId
-*does: checks password to delete and deletes the org
-*returns: 
-*returns to: 
+* accepts: orgId
+* does: checks password to delete and deletes the org
+* returns: 
+* returns to: 
 
 /org/vaccine:
-*accepts:
-*does: 
-*returns: 
-*returns to:
+* accepts:
+* does: 
+* returns: 
+* returns to:
 
 /org/vaccine/add:
-*accepts:
-*does: 
-*returns: 
-*returns to:
+* accepts:
+* does: 
+* returns: 
+* returns to:
 
 /org/vaccine/delete:
-*accepts:
-*does: 
-*returns: 
-*returns to:
+* accepts:
+* does: 
+* returns: 
+* returns to:
 
 /org/vaccine/edit:
-*accepts:
-*does: 
-*returns: 
-*returns to:
+* accepts:
+* does: 
+* returns: 
+* returns to:
 
 /org/trials:
-*accepts:
-*does: 
-*returns: 
-*returns to:
+* accepts:
+* does: 
+* returns: 
+* returns to:
 
 /org/newtrial:
-*accepts:
-*does: 
-*returns: 
-*returns to:
+* accepts:
+* does: 
+* returns: 
+* returns to:
 
 
 /patient: 
-*accepts:
-*does: 
-*returns: 
-*returns to:
+* accepts:
+* does: 
+* returns: 
+* returns to:
 
 /patient/profile: 
-*accepts:
-*does: 
-*returns: 
-*returns to:
+* accepts:
+* does: 
+* returns: 
+* returns to:
 
 /patient/profile/edit: 
-*accepts:
-*does: 
-*returns: 
-*returns to:
+* accepts:
+* does: 
+* returns: 
+* returns to:
 
 /patient/delete:
-*accepts:
-*does: 
-*returns: 
-*returns to:
+* accepts:
+* does: 
+* returns: 
+* returns to:
 
 /patient/results:
-*accepts:
-*does: 
-*returns: 
-*returns to:
+* accepts:
+* does: 
+* returns: 
+* returns to:
 
 /patient/enroll: 
-*accepts:
-*does: 
-*returns: 
-*returns to:
+* accepts:
+* does: 
+* returns: 
+* returns to:
 
 
 /forgotpassword
-*accepts:
-*does: 
-*returns: 
-*returns to:
+* accepts:
+* does: 
+* returns: 
+* returns to:
 
 /logout
-*accepts:
-*does: 
-*returns: 
-*returns to:
+* accepts:
+* does: 
+* returns: 
+* returns to:
 
 /about
-*accepts:
-*does: 
-*returns: 
-*returns to:
+* accepts:
+* does: 
+* returns: 
+* returns to:
