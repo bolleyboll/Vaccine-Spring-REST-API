@@ -9,6 +9,12 @@ export class CrudService {
   constructor(public http : HttpClient) {
    }
   getPosts(){
-    this.http.get("https://jsonplaceholder.typicode.com/users/1/posts").subscribe((data : any[]) => this.posts=data)
+    this.http.get("http://localhost:8080/posts/all").subscribe((data : any[]) => this.posts=data)
+  }
+
+  addPosts(Post){
+    this.http.post("http://localhost:8080/posts/add", Post).subscribe(res =>{
+      this.posts.unshift(res)
+    })
   }
 }
