@@ -5,16 +5,21 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CrudService {
-  posts : any[]
-  constructor(public http : HttpClient) {
-   }
-  getPosts(){
-    this.http.get("http://localhost:8080/posts/all").subscribe((data : any[]) => this.posts=data)
+  posts: any[]
+  constructor(public http: HttpClient) {
+  }
+  getPosts() {
+    this.http.get("http://localhost:8080/posts/all").subscribe((data: any[]) => this.posts = data)
   }
 
-  addPosts(Post){
-    this.http.post("http://localhost:8080/posts/add", Post).subscribe(res =>{
+  addPosts(Post) {
+    this.http.post("http://localhost:8080/posts/add", Post).subscribe(res => {
       this.posts.unshift(res)
+    })
+  }
+  deletePost(id) {
+    this.http.delete("http://localhost:8080/posts/delete/" + id).subscribe(res => {
+      this.posts.splice(id, 1)
     })
   }
 }

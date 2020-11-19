@@ -13,7 +13,6 @@ export class AddComponent {
     this.post = new Posts();
   }
   addPost(add){
-    console.log(this.post)
     this.crud.addPosts(this.post);
   }
 }

@@ -1,13 +1,13 @@
 <div class="container">
-  <div class="card" *ngFor="let post of crud.posts">
+  <div class="card" *ngFor="let post of crud.posts; let id=index">
     <div class="card-body">
       <h4 class="card-title">{{ post.title }}</h4>
       <p class="card-text">{{ post.body }}</p>
       <button class="btn btn-warning">
         <a routerLink="/update" class="card-link">Update</a>
       </button>
-      <button class="btn btn-danger">
-        <a routerLink="/delete" class="card-link">Delete</a>
+      <button class="btn btn-danger" (click) = delete(post.id)>
+        <a class="card-link">Delete</a>
       </button>
     </div>
   </div>

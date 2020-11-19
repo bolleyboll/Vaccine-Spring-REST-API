@@ -13,5 +13,7 @@ export class ViewComponent implements OnInit {
   ngOnInit(): void {
     this.crud.getPosts();
   }
-
+   delete(id){
+     this.crud.deletePost(id);
+   }
 }
