@@ -1,10 +1,14 @@
 <div class="container">
-    <div class="card" *ngFor="let post of crud.posts">
-        <div class="card-body">
-            <h4 class="card-title">{{post.title}}</h4>
-            <p class="card-text">{{post.body}}</p>
-            <a routerLink="/Update" class="card-link">Update</a>
-            <a routerLink="/Update" class="card-link">Delete</a>
-        </div>
+  <div class="card" *ngFor="let post of crud.posts">
+    <div class="card-body">
+      <h4 class="card-title">{{ post.title }}</h4>
+      <p class="card-text">{{ post.body }}</p>
+      <button class="btn btn-warning">
+        <a routerLink="/update" class="card-link">Update</a>
+      </button>
+      <button class="btn btn-danger">
+        <a routerLink="/delete" class="card-link">Delete</a>
+      </button>
     </div>
+  </div>
 </div>
