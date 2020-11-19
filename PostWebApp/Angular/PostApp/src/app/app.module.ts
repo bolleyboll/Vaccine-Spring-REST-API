@@ -10,10 +10,10 @@ import { ViewComponent } from './view/view.component';
 
 export const route: Routes = [
   {
-    path: 'Update',
-    component: UpdateComponent
-  }
-]
+    path: 'update',
+    component: UpdateComponent,
+  },
+];
 
 @NgModule({
   declarations: [AppComponent, AddComponent, UpdateComponent, ViewComponent],
@@ -21,4 +21,4 @@ export const route: Routes = [
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
