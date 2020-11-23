@@ -25,6 +25,9 @@ public class AppController {
 	
 	@Autowired
 	private VaccinesRepository vacRepository;
+	
+	@Autowired
+	private PatientRepository patientRepository;
 
 	@Autowired
 	private HttpSession httpSession;
@@ -32,6 +35,9 @@ public class AppController {
 	public boolean orgValidate() {
 		return (httpSession.getAttribute("orgId") == null) ? false : true;
 	}
+	public boolean validatePatient() {
+		return (httpSession.getAttribute("patientId")==null) ? false : true;
+}
 
 	@PostMapping("/org/signup")
 	public Organization signUp(@RequestBody Organization org) {
@@ -80,5 +86,29 @@ public class AppController {
 			System.out.println(e.getMessage());
 			return new Status(false);
 		}
+	}
+	@PostMapping("/pat/signup")
+	public Patient patSignUp(@RequestBody Patient patient) {
+		try {
+			patient = patientRepository.save(patient);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+		if(patient.getPatientId()!=0) {
+			return patient;
+		}
+		
+		return null;
+	}
+	
+	@PostMapping("/pat/signin")
+	public Patient patSignIn(@RequestBody Patient patient) {
+		Patient dbPatient = patientRepository.findByEmailAndPassword(patient.getEmail(), patient.getPassword());
+		if(dbPatient!=null && dbPatient.getEmail().equals(patient.getEmail()) && dbPatient.getPassword().equals(patient.getPassword())) {
+			httpSession.setAttribute("patientId", dbPatient.getPatientId());
+			return dbPatient;
+		}
+		return null;
 	}
 }
