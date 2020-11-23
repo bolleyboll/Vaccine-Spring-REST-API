@@ -12,13 +12,13 @@ public class Patient {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer patientId;
-	private String patientName;
+	private String name;
 	private String email;
 	private String phone;
 	private String address;
 	private String symptoms;
 	private String medicalHistory;
-	private Integer vacId;
+	private Integer vaccId;
 	private Integer orgId;
 	private String password;
 	private String disease;
@@ -26,17 +26,17 @@ public class Patient {
 	public Patient() {
 		
 	}
-	public Patient(Integer patientId, String patientName, String email, String phone, String address, String symptoms,
-			String medicalHistory, Integer vacId, Integer orgId, String password, String disease,
+	public Patient(Integer patientId, String name, String email, String phone, String address, String symptoms,
+			String medicalHistory, Integer vaccId, Integer orgId, String password, String disease,
 			String profilePicture) {
 		this.patientId = patientId;
-		this.patientName = patientName;
+		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.address = address;
 		this.symptoms = symptoms;
 		this.medicalHistory = medicalHistory;
-		this.vacId = vacId;
+		this.vaccId = vaccId;
 		this.orgId = orgId;
 		this.password = password;
 		this.disease = disease;
@@ -48,11 +48,11 @@ public class Patient {
 	public void setPatientId(Integer patientId) {
 		this.patientId = patientId;
 	}
-	public String getPatientName() {
-		return patientName;
+	public String getname() {
+		return name;
 	}
-	public void setPatientName(String patientName) {
-		this.patientName = patientName;
+	public void setname(String name) {
+		this.name = name;
 	}
 	public String getEmail() {
 		return email;
@@ -78,17 +78,17 @@ public class Patient {
 	public void setSymptoms(String symptoms) {
 		this.symptoms = symptoms;
 	}
-	public String getMedicalHistory() {
+	public String getmedicalHistory() {
 		return medicalHistory;
 	}
-	public void setMedicalHistory(String medicalHistory) {
+	public void setmedicalHistory(String medicalHistory) {
 		this.medicalHistory = medicalHistory;
 	}
-	public Integer getVacId() {
-		return vacId;
+	public Integer getvaccId() {
+		return vaccId;
 	}
-	public void setVacId(Integer vacId) {
-		this.vacId = vacId;
+	public void setvaccId(Integer vaccId) {
+		this.vaccId = vaccId;
 	}
 	public Integer getOrgId() {
 		return orgId;
@@ -108,17 +108,17 @@ public class Patient {
 	public void setDisease(String disease) {
 		this.disease = disease;
 	}
-	public String getProfilePicture() {
+	public String getprofilePicture() {
 		return profilePicture;
 	}
-	public void setProfilePicture(String profilePicture) {
+	public void setprofilePicture(String profilePicture) {
 		this.profilePicture = profilePicture;
 	}
 	@Override
 	public String toString() {
-		return "Patient [patientId=" + patientId + ", patientName=" + patientName + ", email=" + email + ", phone="
+		return "Patient [patientId=" + patientId + ", name=" + name + ", email=" + email + ", phone="
 				+ phone + ", address=" + address + ", symptoms=" + symptoms + ", medicalHistory=" + medicalHistory
-				+ ", vacId=" + vacId + ", orgId=" + orgId + ", password=" + password + ", disease=" + disease
+				+ ", vaccId=" + vaccId + ", orgId=" + orgId + ", password=" + password + ", disease=" + disease
 				+ ", profilePicture=" + profilePicture + "]";
 	}
 	
