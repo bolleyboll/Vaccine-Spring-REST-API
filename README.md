@@ -1,3 +1,6 @@
+### To Import the database, run this command:
+	`mysql -uroot -p<vaccine.sql`
+
 # Vaccine
 
 CLINICAL VACCINE TRIAL
