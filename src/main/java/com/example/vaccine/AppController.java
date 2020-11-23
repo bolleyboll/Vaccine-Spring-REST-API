@@ -35,7 +35,7 @@ public class AppController {
 	public boolean orgValidate() {
 		return (httpSession.getAttribute("orgId") == null) ? false : true;
 	}
-	public boolean validatePatient() {
+	public boolean patientValidate() {
 		return (httpSession.getAttribute("patientId")==null) ? false : true;
 }
 
@@ -110,5 +110,9 @@ public class AppController {
 			return dbPatient;
 		}
 		return null;
+	}
+	@GetMapping("/pat")
+	public List<Patient> getPatients(){
+		return (orgValidate()) ? (List<Patient>) patientRepository.findAll() : null;
 	}
 }
