@@ -14,7 +14,7 @@ public class Report {
 	private String result;
 	private Integer orgId;
 	private Integer patientId;
-	private Integer vacId;
+	private Integer vaccId;
 	public Report() {
 		
 	}
@@ -25,7 +25,7 @@ public class Report {
 		this.result = result;
 		this.orgId = orgId;
 		this.patientId = patientId;
-		this.vacId = vacId;
+		this.vaccId= vacId;
 	}
 	public Integer getReportId() {
 		return reportId;
@@ -58,15 +58,15 @@ public class Report {
 		this.patientId = patientId;
 	}
 	public Integer getVacId() {
-		return vacId;
+		return vaccId;
 	}
 	public void setVacId(Integer vacId) {
-		this.vacId = vacId;
+		this.vaccId= vacId;
 	}
 	@Override
 	public String toString() {
 		return "Report [reportId=" + reportId + ", description=" + description + ", result=" + result + ", orgId="
-				+ orgId + ", patientId=" + patientId + ", vacId=" + vacId + "]";
+				+ orgId + ", patientId=" + patientId + ", vacId=" + vaccId+ "]";
 	}
 	
 

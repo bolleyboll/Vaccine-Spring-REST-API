@@ -9,8 +9,8 @@ import javax.persistence.Id;
 public class Vaccine {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer vacId;
-	private String vacName;
+	private Integer vaccId;
+	private String name;
 	private String disease;
 	private Integer orgId;
 
@@ -18,27 +18,27 @@ public class Vaccine {
 
 	}
 
-	public Vaccine(Integer vacId, String vacName, String disease, Integer orgId) {
-		this.vacId = vacId;
-		this.vacName = vacName;
+	public Vaccine(Integer vaccId, String name, String disease, Integer orgId) {
+		this.vaccId = vaccId;
+		this.name = name;
 		this.disease = disease;
 		this.orgId = orgId;
 	}
 
-	public Integer getVacId() {
-		return vacId;
+	public Integer getvaccId() {
+		return vaccId;
 	}
 
-	public void setVacId(Integer vacId) {
-		this.vacId = vacId;
+	public void setvaccId(Integer vaccId) {
+		this.vaccId = vaccId;
 	}
 
-	public String getVacName() {
-		return vacName;
+	public String getname() {
+		return name;
 	}
 
-	public void setVacName(String vacName) {
-		this.vacName = vacName;
+	public void setname(String name) {
+		this.name = name;
 	}
 
 	public String getDisease() {
@@ -59,6 +59,6 @@ public class Vaccine {
 
 	@Override
 	public String toString() {
-		return "Vaccine [vacId=" + vacId + ", vacName=" + vacName + ", disease=" + disease + ", orgId=" + orgId + "]";
+		return "Vaccine [vaccId=" + vaccId + ", name=" + name + ", disease=" + disease + ", orgId=" + orgId + "]";
 	}
 }
