@@ -115,4 +115,37 @@ public class AppController {
 	public List<Patient> getPatients(){
 		return (orgValidate()) ? (List<Patient>) patientRepository.findAll() : null;
 	}
+	@PutMapping("/pat/update")
+	public Patient updatePatient(@RequestBody Patient patient) {
+		return (patientValidate()) ? patientRepository.save(patient) : null;
+	}
+	
+	@DeleteMapping("/pat/delete/{id}")
+	public Status deletePatient(@PathVariable Integer id) {
+		if (!patientValidate()) {
+			return null;
+		}
+		try {
+			patientRepository.deleteById(id);
+			return new Status(true);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new Status(false);
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
