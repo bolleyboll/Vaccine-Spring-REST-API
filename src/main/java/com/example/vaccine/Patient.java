@@ -18,15 +18,17 @@ public class Patient {
 	private String address;
 	private String symptoms;
 	private String medicalHistory;
-	private Integer vaccId;
+	private Integer vacId;
 	private Integer orgId;
 	private String password;
 	private String disease;
+	private String profilePicture;
 	public Patient() {
 		
 	}
 	public Patient(Integer patientId, String patientName, String email, String phone, String address, String symptoms,
-			String medicalHistory, Integer vaccId, Integer orgId, String password, String disease) {
+			String medicalHistory, Integer vacId, Integer orgId, String password, String disease,
+			String profilePicture) {
 		this.patientId = patientId;
 		this.patientName = patientName;
 		this.email = email;
@@ -34,10 +36,11 @@ public class Patient {
 		this.address = address;
 		this.symptoms = symptoms;
 		this.medicalHistory = medicalHistory;
-		this.vaccId = vaccId;
+		this.vacId = vacId;
 		this.orgId = orgId;
 		this.password = password;
 		this.disease = disease;
+		this.profilePicture = profilePicture;
 	}
 	public Integer getPatientId() {
 		return patientId;
@@ -81,11 +84,11 @@ public class Patient {
 	public void setMedicalHistory(String medicalHistory) {
 		this.medicalHistory = medicalHistory;
 	}
-	public Integer getVaccId() {
-		return vaccId;
+	public Integer getVacId() {
+		return vacId;
 	}
-	public void setVaccId(Integer vaccId) {
-		this.vaccId = vaccId;
+	public void setVacId(Integer vacId) {
+		this.vacId = vacId;
 	}
 	public Integer getOrgId() {
 		return orgId;
@@ -105,12 +108,21 @@ public class Patient {
 	public void setDisease(String disease) {
 		this.disease = disease;
 	}
+	public String getProfilePicture() {
+		return profilePicture;
+	}
+	public void setProfilePicture(String profilePicture) {
+		this.profilePicture = profilePicture;
+	}
 	@Override
 	public String toString() {
 		return "Patient [patientId=" + patientId + ", patientName=" + patientName + ", email=" + email + ", phone="
 				+ phone + ", address=" + address + ", symptoms=" + symptoms + ", medicalHistory=" + medicalHistory
-				+ ", vaccId=" + vaccId + ", orgId=" + orgId + ", password=" + password + ", disease=" + disease + "]";
+				+ ", vacId=" + vacId + ", orgId=" + orgId + ", password=" + password + ", disease=" + disease
+				+ ", profilePicture=" + profilePicture + "]";
 	}
+	
+	
 	
 	
 
