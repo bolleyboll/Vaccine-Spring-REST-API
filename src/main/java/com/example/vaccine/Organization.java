@@ -10,7 +10,7 @@ public class Organization {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer orgId;
-	private String orgName;
+	private String name;
 	private String description;
 	private String logo;
 	private String password;
@@ -20,9 +20,9 @@ public class Organization {
 
 	}
 
-	public Organization(Integer orgId, String orgName, String description, String logo, String email, String password) {
+	public Organization(Integer orgId, String name, String description, String logo, String email, String password) {
 		this.orgId = orgId;
-		this.orgName = orgName;
+		this.name = name;
 		this.description = description;
 		this.logo = logo;
 		this.email = email;
@@ -37,12 +37,12 @@ public class Organization {
 		this.orgId = orgId;
 	}
 
-	public String getOrgName() {
-		return orgName;
+	public String getname() {
+		return name;
 	}
 
-	public void setOrgName(String orgName) {
-		this.orgName = orgName;
+	public void setname(String name) {
+		this.name = name;
 	}
 
 	public String getDescription() {
@@ -79,7 +79,7 @@ public class Organization {
 
 	@Override
 	public String toString() {
-		return "Organization [orgId=" + orgId + ", orgName=" + orgName + ", description=" + description + ", logo="
+		return "Organization [orgId=" + orgId + ", name=" + name + ", description=" + description + ", logo="
 				+ logo + ", password=" + password + ", email=" + email + "]";
 	}
 }
