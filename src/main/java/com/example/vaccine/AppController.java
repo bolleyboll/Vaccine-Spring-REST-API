@@ -70,12 +70,12 @@ public class AppController {
 	}
 
 	@PutMapping("/org/update")
-	public Organization updatePost(@RequestBody Organization org) {
+	public Organization updateOrganization(@RequestBody Organization org) {
 		return (orgValidate()) ? orgRepository.save(org) : null;
 	}
 	
 	@DeleteMapping("/org/delete/{id}")
-	public Status deletePost(@PathVariable Integer id) {
+	public Status deleteOrganization(@PathVariable Integer id) {
 		if (!orgValidate()) {
 			return null;
 		}
