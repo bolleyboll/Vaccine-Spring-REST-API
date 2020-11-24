@@ -91,6 +91,41 @@ public class AppController {
 			return new Status(false);
 		}
 	}
+	
+	@GetMapping("/org/profile/{id}")
+	public Optional<Organization> getOrgById(@PathVariable int id) {
+		return (orgValidate()) ? orgRepository.findById(id) : null;
+	}
+
+	@PostMapping("org/vac/add")
+	public Vaccine addVaccine(@RequestBody Vaccine vacc) {
+		return (orgValidate()) ? vacRepository.save(vacc) : null;
+	}
+
+	@GetMapping("/org/{id}/vaccine")
+	public List<Vaccine> retriveAllVaccines(@PathVariable int id) {
+		return (orgValidate()) ? vacRepository.findByOrgId(id) : null;
+	}
+
+	@PutMapping("/org/vaccine/update")
+	public Vaccine updateVaccine(@RequestBody Vaccine vacc) {
+		return (orgValidate()) ? vacRepository.save(vacc) : null;
+	}
+
+	@DeleteMapping("/org/vaccine/delete/{id}")
+	public Status deleteVaccine(@PathVariable Integer id) {
+		if (!orgValidate()) {
+			return null;
+		}
+		try {
+			vacRepository.deleteById(id);
+			return new Status(true);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new Status(false);
+		}
+	}
+	
 	@PostMapping("/pat/signup")
 	public Patient patSignUp(@RequestBody Patient patient) {
 		try {
