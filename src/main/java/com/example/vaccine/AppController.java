@@ -1,6 +1,7 @@
 package com.example.vaccine;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
@@ -164,8 +165,10 @@ public class AppController {
 	}
 	
 	
-	
-	
+	@GetMapping("/pat/{id}/rep")
+	public List<Report> getReportByPatientId(@PathVariable int id) {
+		return (patientValidate()) ? reportRepository.findReportByPatientId(id) : null;
+	}
 	
 	
 	
