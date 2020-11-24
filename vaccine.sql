@@ -27,7 +27,7 @@ insert into vaccine values(18,'Q-Vax','Q fever', 7);
 insert into vaccine values(19,'Tice BCG','Tuberculosis', 8);
 insert into vaccine values(20,'Typhim Vi','Typhoid fever', 8);
 
-create table patient (patient_id int primary key, name varchar(50), email varchar(50), password varchar(100), disease varchar(50), symptoms text(1000), medicalHistory text(1000), phone varchar(10), address varchar(50), profilePicture varchar(100) default './assets/profile/', vacc_id int, org_id int, foreign key(vacc_id) references vaccine(vacc_id), foreign key(org_id) references organization(org_id));
+create table patient (patient_id int primary key, name varchar(50), email varchar(50), password varchar(100), disease varchar(50), symptoms text(1000), medical_history text(1000), phone varchar(10), address varchar(50), profile_picture varchar(100) default './assets/profile/', vacc_id int, org_id int, foreign key(vacc_id) references vaccine(vacc_id), foreign key(org_id) references organization(org_id));
 
 insert into patient values(1001, 'Alex', 'alex23@xyz.com', 'password', 'Cholera', 'None', 'Healthy Individuals', '8655660000', '81B Baker Street, London', './assets/profile/', 11, 1);
 insert into patient values(1002, 'John', 'john97@xyz.com', 'password', 'Dengue', 'None', 'Healthy Individuals', '7856650000', 'LA City, USA', './assets/profile/', 12, 2);
