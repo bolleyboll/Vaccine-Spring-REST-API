@@ -144,6 +144,25 @@ public class AppController {
 		return (orgValidate()) ? reportRepository.save(report) : null;
 	}
 	
+	@PutMapping("/rep/update")
+	public Report updateReport(@RequestBody Report report) {
+		return (orgValidate()) ? reportRepository.save(report) : null;
+		
+	}
+	@DeleteMapping("/rep/delete/{id}")
+	public Status deleteReport(@PathVariable Integer id) {
+		if(!orgValidate()) {
+			return null;
+		}
+		try {
+			reportRepository.deleteById(id);
+			return new Status(true);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new Status(false);
+		}
+	}
+	
 	
 	
 	
