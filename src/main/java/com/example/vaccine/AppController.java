@@ -28,6 +28,9 @@ public class AppController {
 	
 	@Autowired
 	private PatientRepository patientRepository;
+	
+	@Autowired
+	private ReportRepository reportRepository;
 
 	@Autowired
 	private HttpSession httpSession;
@@ -135,7 +138,11 @@ public class AppController {
 	}
 	
 	
-	
+	@PostMapping("/rep/add")
+	public Report addReport(@RequestBody Report report) {
+		
+		return (orgValidate()) ? reportRepository.save(report) : null;
+	}
 	
 	
 	
