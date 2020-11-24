@@ -8,14 +8,13 @@ import javax.persistence.Id;
 @Entity(name = "vaccine")
 public class Vaccine {
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer vaccId;
 	private String name;
 	private String disease;
 	private Integer orgId;
 
 	public Vaccine() {
-
 	}
 
 	public Vaccine(Integer vaccId, String name, String disease, Integer orgId) {
@@ -25,19 +24,19 @@ public class Vaccine {
 		this.orgId = orgId;
 	}
 
-	public Integer getvaccId() {
+	public Integer getVaccId() {
 		return vaccId;
 	}
 
-	public void setvaccId(Integer vaccId) {
+	public void setVaccId(Integer vaccId) {
 		this.vaccId = vaccId;
 	}
 
-	public String getname() {
+	public String getName() {
 		return name;
 	}
 
-	public void setname(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -59,6 +58,6 @@ public class Vaccine {
 
 	@Override
 	public String toString() {
-		return "Vaccine [vaccId=" + vaccId + ", name=" + name + ", disease=" + disease + ", orgId=" + orgId + "]";
+		return "Vaccine [disease=" + disease + ", name=" + name + ", orgId=" + orgId + ", vaccId=" + vaccId + "]";
 	}
 }

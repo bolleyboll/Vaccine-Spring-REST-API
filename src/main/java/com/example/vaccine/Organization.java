@@ -17,16 +17,15 @@ public class Organization {
 	private String email;
 
 	public Organization() {
-
 	}
 
-	public Organization(Integer orgId, String name, String description, String logo, String email, String password) {
+	public Organization(Integer orgId, String name, String description, String logo, String password, String email) {
 		this.orgId = orgId;
 		this.name = name;
 		this.description = description;
 		this.logo = logo;
-		this.email = email;
 		this.password = password;
+		this.email = email;
 	}
 
 	public Integer getOrgId() {
@@ -37,11 +36,11 @@ public class Organization {
 		this.orgId = orgId;
 	}
 
-	public String getname() {
+	public String getName() {
 		return name;
 	}
 
-	public void setname(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -61,14 +60,6 @@ public class Organization {
 		this.logo = logo;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -77,9 +68,17 @@ public class Organization {
 		this.password = password;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	@Override
 	public String toString() {
-		return "Organization [orgId=" + orgId + ", name=" + name + ", description=" + description + ", logo="
-				+ logo + ", password=" + password + ", email=" + email + "]";
+		return "Organization [description=" + description + ", email=" + email + ", logo=" + logo + ", name=" + name
+				+ ", orgId=" + orgId + ", password=" + password + "]";
 	}
 }
