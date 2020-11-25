@@ -141,7 +141,7 @@ public class AppController {
 			System.out.println(e.getMessage());
 			return null;
 		}
-		if (patient.getPatientId() != 0) {
+		if (patient.getPatientsId() != 0) {
 			return patient;
 		}
 		return null;
@@ -152,7 +152,7 @@ public class AppController {
 		Patient dbPatient = patientRepository.findByEmailAndPassword(patient.getEmail(), patient.getPassword());
 		if (dbPatient != null && dbPatient.getEmail().equals(patient.getEmail())
 				&& dbPatient.getPassword().equals(patient.getPassword())) {
-			httpSession.setAttribute("patientId", dbPatient.getPatientId());
+			httpSession.setAttribute("patientId", dbPatient.getPatientsId());
 			return dbPatient;
 		}
 		return null;

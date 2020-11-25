@@ -10,7 +10,7 @@ public class Patient {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer patientId;
+	private Integer patientsId;
 	private String name;
 	private String email;
 	private String phone;
@@ -27,12 +27,30 @@ public class Patient {
 	public Patient() {
 	}
 
-	public Integer getPatientId() {
-		return patientId;
+	public Patient(Integer patientsId, String name, String email, String phone, String address, String symptoms,
+			String medicalHistory, Integer vaccId, Integer orgId, String password, String disease,
+			String profilePicture, String dob) {
+		this.patientsId = patientsId;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
+		this.symptoms = symptoms;
+		this.medicalHistory = medicalHistory;
+		this.vaccId = vaccId;
+		this.orgId = orgId;
+		this.password = password;
+		this.disease = disease;
+		this.profilePicture = profilePicture;
+		this.dob = dob;
 	}
 
-	public void setPatientId(Integer patientId) {
-		this.patientId = patientId;
+	public Integer getPatientsId() {
+		return patientsId;
+	}
+
+	public void setPatientsId(Integer patientsId) {
+		this.patientsId = patientsId;
 	}
 
 	public String getName() {
@@ -133,10 +151,12 @@ public class Patient {
 
 	@Override
 	public String toString() {
-		return "Patient [address=" + address + ", disease=" + disease + ", dob=" + dob + ", email=" + email
-				+ ", medicalHistory=" + medicalHistory + ", name=" + name + ", orgId=" + orgId + ", password="
-				+ password + ", patientId=" + patientId + ", phone=" + phone + ", profilePicture=" + profilePicture
-				+ ", symptoms=" + symptoms + ", vaccId=" + vaccId + "]";
+		return "Patient [patientsId=" + patientsId + ", name=" + name + ", email=" + email + ", phone=" + phone
+				+ ", address=" + address + ", symptoms=" + symptoms + ", medicalHistory=" + medicalHistory + ", vaccId="
+				+ vaccId + ", orgId=" + orgId + ", password=" + password + ", disease=" + disease + ", profilePicture="
+				+ profilePicture + ", dob=" + dob + "]";
 	}
+
+	
 
 }
