@@ -33,6 +33,9 @@ public class VaccineApplication {
 				
 				registry.addMapping("/org/signup").allowedOrigins("http://localhost:4200");
 				registry.addMapping("/org/signup").allowCredentials(true);
+				
+				registry.addMapping("/org/profile/*").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/org/profile/*").allowCredentials(true);
 			}
 		};
 	}
