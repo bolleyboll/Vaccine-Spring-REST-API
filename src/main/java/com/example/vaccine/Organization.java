@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity(name = "organization")
+@Entity(name = "organizations")
 public class Organization {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
