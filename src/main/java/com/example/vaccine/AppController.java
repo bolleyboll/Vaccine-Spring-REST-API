@@ -36,12 +36,14 @@ public class AppController {
 	@Autowired
 	private HttpSession httpSession;
 
+	private boolean test = true;
+
 	public boolean orgValidate() {
-		return (httpSession.getAttribute("orgId") == null) ? false : true;
+		return (test || httpSession.getAttribute("orgId") != null) ? true : false;
 	}
 
 	public boolean patientValidate() {
-		return (httpSession.getAttribute("patientId") == null) ? false : true;
+		return (test || httpSession.getAttribute("patientId") != null) ? true : false;
 	}
 
 	@GetMapping("/partners")
@@ -102,22 +104,22 @@ public class AppController {
 		return (orgValidate()) ? orgRepository.findById(id) : null;
 	}
 
-	@PostMapping("org/vac/add")
+	@GetMapping("/org/{id}/vaccines")
+	public List<Vaccine> retriveAllOrgVaccines(@PathVariable int id) {
+		return (orgValidate()) ? vacRepository.findAllByOrgId(id) : null;
+	}
+
+	@PostMapping("/vaccine/add")
 	public Vaccine addVaccine(@RequestBody Vaccine vacc) {
 		return (orgValidate()) ? vacRepository.save(vacc) : null;
 	}
 
-	@GetMapping("/org/{id}/vaccine")
-	public List<Vaccine> retriveAllVaccines(@PathVariable int id) {
-		return (orgValidate()) ? vacRepository.findByOrgId(id) : null;
-	}
-
-	@PutMapping("/org/vaccine/update")
+	@PutMapping("/vaccine/update")
 	public Vaccine updateVaccine(@RequestBody Vaccine vacc) {
 		return (orgValidate()) ? vacRepository.save(vacc) : null;
 	}
 
-	@DeleteMapping("/org/vaccine/delete/{id}")
+	@DeleteMapping("/vaccine/delete/{id}")
 	public Status deleteVaccine(@PathVariable Integer id) {
 		if (!orgValidate()) {
 			return null;
@@ -131,7 +133,7 @@ public class AppController {
 		}
 	}
 
-	@PostMapping("/pat/signup")
+	@PostMapping("/patient/signup")
 	public Patient patSignUp(@RequestBody Patient patient) {
 		try {
 			patient = patientRepository.save(patient);
@@ -142,11 +144,10 @@ public class AppController {
 		if (patient.getPatientId() != 0) {
 			return patient;
 		}
-
 		return null;
 	}
 
-	@PostMapping("/pat/signin")
+	@PostMapping("/patient/signin")
 	public Patient patSignIn(@RequestBody Patient patient) {
 		Patient dbPatient = patientRepository.findByEmailAndPassword(patient.getEmail(), patient.getPassword());
 		if (dbPatient != null && dbPatient.getEmail().equals(patient.getEmail())
@@ -157,17 +158,17 @@ public class AppController {
 		return null;
 	}
 
-	@GetMapping("/pat")
-	public List<Patient> getPatients() {
-		return (orgValidate()) ? (List<Patient>) patientRepository.findAll() : null;
+	@GetMapping("/unenrolledpatients")
+	public List<Patient> getUnenrolledPatients() {
+		return (orgValidate()) ? (List<Patient>) patientRepository.findByOrgId(null) : null;
 	}
 
-	@PutMapping("/pat/update")
+	@PutMapping("/patient/update")
 	public Patient updatePatient(@RequestBody Patient patient) {
 		return (patientValidate()) ? patientRepository.save(patient) : null;
 	}
 
-	@DeleteMapping("/pat/delete/{id}")
+	@DeleteMapping("/patient/delete/{id}")
 	public Status deletePatient(@PathVariable Integer id) {
 		if (!patientValidate()) {
 			return null;
@@ -181,19 +182,19 @@ public class AppController {
 		}
 	}
 
-	@PostMapping("/rep/add")
+	@PostMapping("/report/add")
 	public Report addReport(@RequestBody Report report) {
 
 		return (orgValidate()) ? reportRepository.save(report) : null;
 	}
 
-	@PutMapping("/rep/update")
+	@PutMapping("/report/update")
 	public Report updateReport(@RequestBody Report report) {
 		return (orgValidate()) ? reportRepository.save(report) : null;
 
 	}
 
-	@DeleteMapping("/rep/delete/{id}")
+	@DeleteMapping("/report/delete/{id}")
 	public Status deleteReport(@PathVariable Integer id) {
 		if (!orgValidate()) {
 			return null;
@@ -207,9 +208,9 @@ public class AppController {
 		}
 	}
 
-	@GetMapping("/pat/{id}/rep")
+	@GetMapping("/patient/{id}/report")
 	public List<Report> getReportByPatientId(@PathVariable int id) {
-		return (patientValidate()) ? reportRepository.findReportByPatientId(id) : null;
+		return (patientValidate()) ? reportRepository.findAllByPatientId(id) : null;
 	}
 
 }
