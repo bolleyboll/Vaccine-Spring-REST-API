@@ -10,7 +10,7 @@ public class Patient {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer patientsId;
+	private Integer patientId;
 	private String name;
 	private String email;
 	private String phone;
@@ -23,14 +23,15 @@ public class Patient {
 	private String disease;
 	private String profilePicture;
 	private String dob;
+	private String gender;
 
 	public Patient() {
 	}
 
-	public Patient(Integer patientsId, String name, String email, String phone, String address, String symptoms,
+	public Patient(Integer patientId, String name, String email, String phone, String address, String symptoms,
 			String medicalHistory, Integer vaccId, Integer orgId, String password, String disease,
-			String profilePicture, String dob) {
-		this.patientsId = patientsId;
+			String profilePicture, String dob, String gender) {
+		this.patientId = patientId;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
@@ -43,14 +44,15 @@ public class Patient {
 		this.disease = disease;
 		this.profilePicture = profilePicture;
 		this.dob = dob;
+		this.gender = gender;
 	}
 
-	public Integer getPatientsId() {
-		return patientsId;
+	public Integer getPatientId() {
+		return patientId;
 	}
 
-	public void setPatientsId(Integer patientsId) {
-		this.patientsId = patientsId;
+	public void setPatientId(Integer patientId) {
+		this.patientId = patientId;
 	}
 
 	public String getName() {
@@ -149,14 +151,15 @@ public class Patient {
 		this.dob = dob;
 	}
 
-	@Override
-	public String toString() {
-		return "Patient [patientsId=" + patientsId + ", name=" + name + ", email=" + email + ", phone=" + phone
-				+ ", address=" + address + ", symptoms=" + symptoms + ", medicalHistory=" + medicalHistory + ", vaccId="
-				+ vaccId + ", orgId=" + orgId + ", password=" + password + ", disease=" + disease + ", profilePicture="
-				+ profilePicture + ", dob=" + dob + "]";
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	
 
+	
 }
