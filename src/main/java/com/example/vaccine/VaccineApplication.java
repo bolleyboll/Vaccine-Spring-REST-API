@@ -45,6 +45,48 @@ public class VaccineApplication {
 				
 				registry.addMapping("/vaccine/id/*").allowedOrigins("http://localhost:4200");
 				registry.addMapping("/vaccine/id/*").allowCredentials(true);
+				
+				registry.addMapping("/partners").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/partners").allowCredentials(true);
+				
+				registry.addMapping("/vaccines").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/vaccines").allowCredentials(true);
+				
+				registry.addMapping("/org/update").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/org/update").allowCredentials(true);
+				
+				registry.addMapping("/org/delete/*").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/org/delete/*").allowCredentials(true);
+				
+				registry.addMapping("/org/*/vaccines").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/org/*/vaccines").allowCredentials(true);
+				
+				registry.addMapping("/vaccine/update").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/vaccine/update").allowCredentials(true);
+				
+				registry.addMapping("/vaccine/delete/*").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/vaccine/delete/*").allowCredentials(true);
+				
+				registry.addMapping("/unenrolledpatients").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/unenrolledpatients").allowCredentials(true);
+				
+				registry.addMapping("/patient/delete/*").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/patient/delete/*").allowCredentials(true);
+				
+				registry.addMapping("/report/add").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/report/add").allowCredentials(true);
+				
+				registry.addMapping("/report/update").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/report/update").allowCredentials(true);
+				
+				registry.addMapping("/report/delete/*").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/report/delete/*").allowCredentials(true);
+				
+				registry.addMapping("/report/*").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/report/*").allowCredentials(true);
+				
+				registry.addMapping("/vaccine/disease/*").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/vaccine/disease/*").allowCredentials(true);
 			}
 		};
 	}
