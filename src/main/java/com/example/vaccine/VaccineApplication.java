@@ -36,8 +36,15 @@ public class VaccineApplication {
 				
 				registry.addMapping("/vaccine/add").allowedOrigins("http://localhost:4200");
 				registry.addMapping("/vaccine/add").allowCredentials(true);
-				registry.addMapping("/org/profile/*").allowedOrigins("http://localhost:4200");
-				registry.addMapping("/org/profile/*").allowCredentials(true);
+				
+				registry.addMapping("/org/*").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/org/*").allowCredentials(true);
+				
+				registry.addMapping("/patient/*/report").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/patient/*/report").allowCredentials(true);
+				
+				registry.addMapping("/vaccine/id/*").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/vaccine/id/*").allowCredentials(true);
 			}
 		};
 	}
