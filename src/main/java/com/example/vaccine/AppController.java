@@ -36,14 +36,12 @@ public class AppController {
 	@Autowired
 	private HttpSession httpSession;
 
-	private boolean test = true;
-
 	public boolean orgValidate() {
-		return (test || httpSession.getAttribute("orgId") != null) ? true : false;
+		return (httpSession.getAttribute("orgId") != null) ? true : false;
 	}
 
 	public boolean patientValidate() {
-		return (test || httpSession.getAttribute("patientId") != null) ? true : false;
+		return (httpSession.getAttribute("patientId") != null) ? true : false;
 	}
 
 	@GetMapping("/partners")
@@ -99,9 +97,9 @@ public class AppController {
 		}
 	}
 
-	@GetMapping("/org/profile/{id}")
+	@GetMapping("/org/{id}")
 	public Optional<Organization> getOrgById(@PathVariable int id) {
-		return (orgValidate()) ? orgRepository.findById(id) : null;
+		return orgRepository.findById(id);
 	}
 
 	@GetMapping("/org/{id}/vaccines")
@@ -141,7 +139,7 @@ public class AppController {
 			System.out.println(e.getMessage());
 			return null;
 		}
-		if (patient.getPatientsId() != 0) {
+		if (patient.getPatientId() != 0) {
 			return patient;
 		}
 		return null;
@@ -152,7 +150,7 @@ public class AppController {
 		Patient dbPatient = patientRepository.findByEmailAndPassword(patient.getEmail(), patient.getPassword());
 		if (dbPatient != null && dbPatient.getEmail().equals(patient.getEmail())
 				&& dbPatient.getPassword().equals(patient.getPassword())) {
-			httpSession.setAttribute("patientId", dbPatient.getPatientsId());
+			httpSession.setAttribute("patientId", dbPatient.getPatientId());
 			return dbPatient;
 		}
 		return null;
@@ -212,9 +210,19 @@ public class AppController {
 	public List<Report> getReportByPatientId(@PathVariable int id) {
 		return (patientValidate()) ? reportRepository.findAllByPatientId(id) : null;
 	}
-	
-	@GetMapping("/vaccines/{id}")
+
+	@GetMapping("/vaccine/id/{id}")
 	public Optional<Vaccine> findVaccineById(@PathVariable int id) {
-		return (vacRepository.findById(id));
+		return vacRepository.findById(id);
+	}
+
+	@GetMapping("/report/{id}")
+	public Optional<Report> findReportById(@PathVariable int id) {
+		return reportRepository.findById(id);
+	}
+
+	@GetMapping("/vaccine/disease/{disease}")
+	public List<Vaccine> findVaccineByDisease(@PathVariable String disease) {
+		return (patientValidate() ? vacRepository.findAllByDisease(disease) : null);
 	}
 }
