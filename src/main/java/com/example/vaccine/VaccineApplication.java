@@ -93,6 +93,12 @@ public class VaccineApplication {
 				
 				registry.addMapping("/distinct/disease").allowedOrigins("http://localhost:4200");
 				registry.addMapping("/distinct/disease").allowCredentials(true);
+				
+				registry.addMapping("/unenrolledpatients/*").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/unenrolledpatients/*").allowCredentials(true);
+				
+				registry.addMapping("/patient/*").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/patient/*").allowCredentials(true);
 			}
 		};
 	}

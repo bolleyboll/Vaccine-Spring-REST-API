@@ -236,4 +236,14 @@ public class AppController {
 		}
 			return null;
 	}
+	@GetMapping("/unenrolledpatients/{disease}")
+	public List <Patient> finfPatientByDisease(@PathVariable String disease){
+		return (orgValidate())? patientRepository.findByOrgIdAndDisease(null, disease):null;
+	}
+	
+	@GetMapping("/patient/{id}")
+	public Optional <Patient> findPatientById(@PathVariable Integer id){
+		return (orgValidate() || patientValidate()) ? patientRepository.findById(id): null;
+	}
+	
 }
