@@ -90,6 +90,9 @@ public class VaccineApplication {
 				
 				registry.addMapping("/vaccine/disease/*").allowedOrigins("http://localhost:4200");
 				registry.addMapping("/vaccine/disease/*").allowCredentials(true);
+				
+				registry.addMapping("/distinct/disease").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/distinct/disease").allowCredentials(true);
 			}
 		};
 	}

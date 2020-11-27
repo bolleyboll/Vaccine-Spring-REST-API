@@ -225,4 +225,15 @@ public class AppController {
 	public List<Vaccine> findVaccineByDisease(@PathVariable String disease) {
 		return (patientValidate() ? vacRepository.findAllByDisease(disease) : null);
 	}
+		
+	@GetMapping("/distinct/disease")
+	public List<String> getDistinctDisease()
+	{
+		List<String> diseases=vacRepository.findDistinctDisease();
+		if(diseases !=null )
+		{
+			return diseases;
+		}
+			return null;
+	}
 }
