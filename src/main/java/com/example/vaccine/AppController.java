@@ -163,7 +163,7 @@ public class AppController {
 
 	@PutMapping("/patient/update")
 	public Patient updatePatient(@RequestBody Patient patient) {
-		return (patientValidate()) ? patientRepository.save(patient) : null;
+		return (patientValidate() || orgValidate()) ? patientRepository.save(patient) : null;
 	}
 
 	@DeleteMapping("/patient/delete/{id}")
