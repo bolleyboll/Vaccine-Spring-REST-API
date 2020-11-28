@@ -11,5 +11,4 @@ public interface PatientRepository extends CrudRepository<Patient, Integer> {
 	List<Patient> findByOrgId(Integer id);
 	
 	List<Patient> findByOrgIdAndDisease(Integer PatientId, String disease);
-
 }

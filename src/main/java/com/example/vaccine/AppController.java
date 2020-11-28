@@ -250,4 +250,9 @@ public class AppController {
 		return (orgValidate()) ? reportRepository.findReportByVaccId(id): null;
 	}
 	
+	@GetMapping("/org/{id}/patients")
+	public List<Patient> retriveAllOrgPatients(@PathVariable int id) {
+		return (orgValidate()) ? patientRepository.findByOrgId(id) : null;
+	}
+	
 }
