@@ -188,3 +188,44 @@ CLINICAL VACCINE TRIAL
 * does: 
 * returns: 
 * returns to:
+
+
+## Routes
+
+1) '/'- this is the route used for Index component.
+
+2) '/signin'- this is the route used for signin component.
+
+3) '/register/org - this route is used to register the organization.
+
+4) '/register/patient - this route is used to register the patient.
+
+5) '/about' - this route is used for about component.
+
+6) '/home/org' - this route is used to display organization's home component.
+
+7) '/home/patient' - this route is used to display patient's home component.
+
+8) '/edit/profile/org' - this route is used to update the organization details.
+
+9) '/edit/profile/patient' - this route is used to update patients detalis.
+
+10) '/delte/patient' - this route is used to deactivate patient's account.
+
+11) '/delete/org' - this route is used to deactivate organization's account.
+
+12) '/report/patient' - this route is used to display the patient's report.
+
+13) 'org/vacc' - this route is used to display list of vaccines related to specific organization.
+
+14) '/org/vacc/edit' - this route is used to update the vaccine related to specific organization.
+
+15) '/org/vacc/add' - this route is used to add the vaccine related to specific organization.
+
+16) '/vaccines' - this route is used to display all the vaccines.
+
+17) '/partners' - this route is used to display all the organizations.
+
+18) '/start/trial' - this route is used to start new vaccine trial.
+
+19) '/end/trial/' - this route is used to end the trial. 
