@@ -1,6 +1,6 @@
 ### To Import the database, run this command:
 	`mysql -uroot -p<vaccine.sql`
-VACCINE TRIAL
+VACCINE DB
 
 ## Routes
 
